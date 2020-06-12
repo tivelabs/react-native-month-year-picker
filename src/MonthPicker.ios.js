@@ -101,7 +101,6 @@ class MonthPicker extends React.PureComponent {
       cancelButton = 'Cancel',
       okButtonStyle,
       cancelButtonStyle,
-      backgroundColor = 'white',
     } = this.props;
     invariant(value, 'value prop is required!');
 
@@ -128,7 +127,6 @@ class MonthPicker extends React.PureComponent {
             value={this.getLongFromDate(value)}
             minimumDate={this.getLongFromDate(minimumDate)}
             maximumDate={this.getLongFromDate(maximumDate)}
-            backgroundColor={backgroundColor}
           />
         </View>
       </Animated.View>

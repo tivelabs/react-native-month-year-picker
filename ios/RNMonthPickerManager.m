@@ -22,6 +22,5 @@ RCT_EXPORT_VIEW_PROPERTY(onChange, RCTBubblingEventBlock)
 RCT_EXPORT_VIEW_PROPERTY(value, NSDate)
 RCT_EXPORT_VIEW_PROPERTY(minimumDate, NSDate)
 RCT_EXPORT_VIEW_PROPERTY(maximumDate, NSDate)
-RCT_EXPORT_VIEW_PROPERTY(background, NSString)
 
 @end

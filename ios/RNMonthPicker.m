@@ -109,18 +109,12 @@ RCT_NOT_IMPLEMENTED(- (instancetype)initWithCoder:(NSCoder *)aDecoder)
 
 #pragma mark - UIPickerViewDelegate methods
 // row titles
-- (NSString *)pickerView:(nonnull UIPickerView *) pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {    
+- (NSAttributedString *)pickerView:(nonnull UIPickerView *) pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
     switch (component) {
         case 0:
-            NSString *title = [NSString stringWithFormat:@"%@", months[row]];
-            NSAttributedString *attString = 
-            [[NSAttributedString alloc] initWithString:title attributes:@{NSForegroundColorAttributeName:[UIColor blackColor]}];
-            return attString;
+            return [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@", months[row]] attributes:@{NSForegroundColorAttributeName:[UIColor blackColor]}];
         case 1:
-            NSString *title = [NSString stringWithFormat:@"%@", years[row]];
-            NSAttributedString *attString = 
-            [[NSAttributedString alloc] initWithString:title attributes:@{NSForegroundColorAttributeName:[UIColor blackColor]}];
-            return attString;
+            return [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@", years[row]] attributes:@{NSForegroundColorAttributeName:[UIColor blackColor]}];
         default:
             return nil;
     }
