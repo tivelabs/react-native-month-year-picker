@@ -22,6 +22,7 @@ const styles = StyleSheet.create({
   container: {
     width,
     position: 'absolute',
+    backgroundColor: 'white',
     zIndex: 500,
     bottom: 0,
   },
