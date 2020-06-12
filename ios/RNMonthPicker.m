@@ -109,7 +109,7 @@ RCT_NOT_IMPLEMENTED(- (instancetype)initWithCoder:(NSCoder *)aDecoder)
 
 #pragma mark - UIPickerViewDelegate methods
 // row titles
-- (NSAttributedString *)pickerView:(nonnull UIPickerView *) pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
+- (NSAttributedString *)pickerView:(nonnull UIPickerView *) pickerView attributedTitleForRow:(NSInteger)row forComponent:(NSInteger)component {
     switch (component) {
         case 0:
             return [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@", months[row]] attributes:@{NSForegroundColorAttributeName:[UIColor blackColor]}];
