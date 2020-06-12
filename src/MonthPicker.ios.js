@@ -110,7 +110,6 @@ class MonthPicker extends React.PureComponent {
         style={{
           ...styles.container,
           height: this.state.slideAnim,
-          backgroundColor: backgroundColor,
         }}>
         <View style={styles.toolbarContainer}>
           <TouchableOpacity onPress={this.onCancel}>
@@ -122,14 +121,14 @@ class MonthPicker extends React.PureComponent {
             <Text style={okButtonStyle || styles.okStyle}>{okButton}</Text>
           </TouchableOpacity>
         </View>
-        <View
-          style={{ ...styles.pickerContainer, backgroundColor: backgroundColor }}>
+        <View style={styles.pickerContainer}>
           <RNMonthPickerView
-            style={{ ...styles.picker, backgroundColor: backgroundColor }}
+            style={styles.picker}
             onChange={this.onValueChange}
             value={this.getLongFromDate(value)}
             minimumDate={this.getLongFromDate(minimumDate)}
             maximumDate={this.getLongFromDate(maximumDate)}
+            backgroundColor={backgroundColor}
           />
         </View>
       </Animated.View>

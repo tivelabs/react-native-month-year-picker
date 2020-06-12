@@ -88,6 +88,10 @@ RCT_NOT_IMPLEMENTED(- (instancetype)initWithCoder:(NSCoder *)aDecoder)
     minComponents = _minimumDate ? [gregorian components:NSCalendarUnitMonth | NSCalendarUnitYear fromDate:_minimumDate] : nil;
 }
 
+- (void) setBackground:(NSString *)background {
+     = background;
+}
+
 #pragma mark - UIPickerViewDataSource protocol
 // number of columns
 - (NSInteger)numberOfComponentsInPickerView:(nonnull UIPickerView *)pickerView {
@@ -109,12 +113,16 @@ RCT_NOT_IMPLEMENTED(- (instancetype)initWithCoder:(NSCoder *)aDecoder)
 
 #pragma mark - UIPickerViewDelegate methods
 // row titles
-- (NSString *)pickerView:(nonnull UIPickerView *) pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
+- (NSString *)pickerView:(nonnull UIPickerView *) pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {    
     switch (component) {
         case 0:
-            return [NSString stringWithFormat:@"%@", months[row]];
+            NSString *title = [NSString stringWithFormat:@"%@", months[row]];
+            NSAttributedString *attString = 
+            [[NSAttributedString alloc] initWithString:title attributes:@{NSForegroundColorAttributeName:[UIColor blackColor]}];
         case 1:
-            return [NSString stringWithFormat:@"%@", years[row]];
+            NSString *title = [NSString stringWithFormat:@"%@", years[row]];
+            NSAttributedString *attString = 
+            [[NSAttributedString alloc] initWithString:title attributes:@{NSForegroundColorAttributeName:[UIColor blackColor]}];
         default:
             return nil;
     }
