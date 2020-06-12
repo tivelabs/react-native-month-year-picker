@@ -21,7 +21,6 @@ const { Value, timing } = Animated;
 const styles = StyleSheet.create({
   container: {
     width,
-    backgroundColor: 'white',
     position: 'absolute',
     zIndex: 500,
     bottom: 0,
@@ -102,12 +101,17 @@ class MonthPicker extends React.PureComponent {
       cancelButton = 'Cancel',
       okButtonStyle,
       cancelButtonStyle,
+      backgroundColor = 'white',
     } = this.props;
     invariant(value, 'value prop is required!');
 
     return (
       <Animated.View
-        style={{ ...styles.container, height: this.state.slideAnim }}>
+        style={{
+          ...styles.container,
+          height: this.state.slideAnim,
+          backgroundColor: backgroundColor,
+        }}>
         <View style={styles.toolbarContainer}>
           <TouchableOpacity onPress={this.onCancel}>
             <Text style={cancelButtonStyle || styles.cancelStyle}>
@@ -118,9 +122,10 @@ class MonthPicker extends React.PureComponent {
             <Text style={okButtonStyle || styles.okStyle}>{okButton}</Text>
           </TouchableOpacity>
         </View>
-        <View style={styles.pickerContainer}>
+        <View
+          style={{ ...styles.pickerContainer, backgroundColor: backgroundColor }}>
           <RNMonthPickerView
-            style={styles.picker}
+            style={{ ...styles.picker, backgroundColor: backgroundColor }}
             onChange={this.onValueChange}
             value={this.getLongFromDate(value)}
             minimumDate={this.getLongFromDate(minimumDate)}
